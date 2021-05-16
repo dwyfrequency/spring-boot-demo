@@ -1,12 +1,14 @@
 package com.example.demo.dao;
 
 import com.example.demo.model.Person;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 // YouTube Ending: https://youtu.be/vtPkZShrvXQ?t=3809
+@Repository("postgres")
 public class PersonAccessService implements PersonDao {
     @Override
     public int insertPerson(UUID id, Person person) {
@@ -15,7 +17,7 @@ public class PersonAccessService implements PersonDao {
 
     @Override
     public List<Person> selectAllPeople() {
-        return null;
+        return List.of(new Person(UUID.randomUUID(), "FROM POSTGRES DB"));
     }
 
     @Override
